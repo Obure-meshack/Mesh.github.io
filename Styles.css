@@ -1,0 +1,86 @@
+body {
+    font-family: fantasy;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.x {
+text-align:center;
+text-shadow:3px  4px  sky-blue
+}
+header {
+    background-color: #008080;
+    padding: 20px;
+}
+
+header nav ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+#search-doctor {
+    text-align: center;
+    padding: 50px;
+    background-color: #f4f4f4;
+}
+
+#search-doctor form {
+    margin-top: 20px;
+}
+
+#search-doctor form input,
+#search-doctor form button {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+}
+
+#consulting-specialists {
+    text-align: center;
+    padding: 50px;
+    background-color: #e4e4e4;
+}
+
+#consulting-specialists .specialist {
+    margin: 20px 0;
+}
+
+#testimonials {
+    text-align: center;
+    padding: 50px;
+    background-color: #d4d4d4;
+}
+
+#why-choose-us {
+    text-align: center;
+    padding: 50px;
+    background-color: #c4c4c4;
+}
+
+footer {
+    background-color: #008080;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer #newsletter form {
+    margin-top: 20px;
+}
+
+footer #footer-info {
+    margin-top: 20px;
+}￼Enter
