@@ -1,53 +1,35 @@
-// Wait for the DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Highlight the active navigation link based on the scroll position
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('nav ul li a');
-
-    function highlightNav() {
-        let index = sections.length;
-        while(--index && window.scrollY + 50 < sections[index].offsetTop) {}
-        navLinks.forEach((link) => link.classList.remove('active'));
-        navLinks[index].classList.add('active');
-    }
-
-    window.addEventListener('scroll', highlightNav);
-    highlightNav();
-
-    // Handle the search form submission
+// Wait for the DOM to fully load
+document.addEventListener("DOMContentLoaded", function() {
+    // Form submission for searching doctors
     const searchForm = document.querySelector('#search-doctor form');
     searchForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the form from submitting the traditional way
-        const location = document.querySelector('#location').value.trim();
-        const doctorName = document.querySelector('#doctor-name').value.trim();
+        event.preventDefault(); // Prevent the default form submission
 
-        if (!location && !doctorName) {
-            alert('Please enter at least a location or doctor’s name to search.');
+        const location = document.getElementById('location').value;
+        const doctorName = document.getElementById('doctor-name').value;
+
+        if (location === '' || doctorName === '') {
+            alert('Please fill in both fields to search for a doctor.');
         } else {
-            // Add your search logic here
-            console.log(`Searching for doctors in location: ${location}, with name: ${doctorName}`);
+            // Here you can implement the search functionality
+            alert(`Searching for ${doctorName} in ${location}...`);
+            // You can redirect to a search results page or filter results dynamically
         }
     });
 
-    // Handle the newsletter subscription form submission
+    // Form submission for newsletter subscription
     const newsletterForm = document.querySelector('#newsletter form');
     newsletterForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the form from submitting the traditional way
-        const email = document.querySelector('#newsletter input[type="email"]').value.trim();
+        event.preventDefault(); // Prevent the default form submission
 
-        if (!email) {
-            alert('Please enter your email to subscribe.');
-        } else if (!validateEmail(email)) {
-            alert('Please enter a valid email address.');
+        const email = newsletterForm.querySelector('input[type="email"]').value;
+
+        if (email === '') {
+            alert('Please enter your email address to subscribe.');
         } else {
-            // Add your subscription logic here
-            console.log(`Subscribing with email: ${email}`);
+            // Here you can implement the subscription logic
+            alert(`Thank you for subscribing with the email: ${email}`);
+            newsletterForm.reset(); // Reset the form fields
         }
     });
-
-    // Email validation function
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(String(email).toLowerCase());
-    }
 });
